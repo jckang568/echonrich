@@ -1,0 +1,43 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /
+    encoding:
+      charset: utf-8
+      enabled: true
+
+# ???? jvm ?? ????? ??
+jasypt:
+  encryptor:
+    password: echonrich
+
+
+spring:
+  datasource:
+    url: ENC(b4kh59JChgVl93FIu3JxhcVrHbhkJOeYNIc6Lj/loxPve5AOvJoAZzGEjPsBpvOmrJkZgBhua3Pkh9EGxtIypKQ1RhvODgUrjPA37HGP1SR/dNNMkbpYEio5mXe++PetqrrNRRGoDrDRc8QvtjP6eo6lwCH7szlUqN6uUaEv2AC04uoQ6JFUVLy61MbHsZMu/X7GfBbkUBQ=)
+    username: ENC(fSQFAbUswRMes7sdDuWlrQ==)
+    password: ENC(uPZ2LjLOGxMhrhvKT9YdoC4tlTd+YxS+)
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: false
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000
+        globally_quoted_identifiers: true
+    show-sql: true
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:/sql/schema.sql
+      data-locations: classpath:/sql/data.sql
+
+#decorator:
+#  datasource:
+#    p6spy:
+#      enable-logging: true
+#      logging: slf4j
